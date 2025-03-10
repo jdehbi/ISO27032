@@ -1,11 +1,31 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>JavaScript Snyk Test</title>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+
+    <h1>Snyk Test Example</h1>
+    <p>Open the console and enter JavaScript code.</p>
+    
+    <script>
+        function sayHello() {
+            console.log("Hello, World!");
+        }
+
+        // 🛑 SECURITY ISSUE: Using eval() (This should be flagged by Snyk)
+        function executeUserInput(input) {
+            return eval(input);  // ⚠️ Dangerous function
+        }
+
+        sayHello();
+        
+        // Simulate user input execution (unsafe example)
+        let userCode = "alert('Hello from eval!')";
+        executeUserInput(userCode);
+    </script>
+
 </body>
 </html>
