@@ -49,7 +49,8 @@ jobs:
 
       - name: run snyk
         uses: snyk/actions/node@master
-
+        with:
+          command: test --file=main.js
         env:
           # This is where you will need to introduce the Snyk API token created with your Snyk account
           SNYK_TOKEN: 60196027-1ae6-4692-baf6-484d0e16d740
